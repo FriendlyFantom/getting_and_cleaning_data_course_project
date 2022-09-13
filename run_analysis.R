@@ -45,6 +45,7 @@ rename <- function(x){
 names(df) <- rename(names(df))
 
 # Group by Activity and Subject as new table and write file
+library(dplyr)
 activity_subject_means <- 
   df %>% 
   group_by(Activity, Subject) %>% 
