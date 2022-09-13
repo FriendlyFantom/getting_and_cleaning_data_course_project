@@ -50,4 +50,7 @@ activity_subject_means <-
   group_by(Activity, Subject) %>% 
   summarise(across(everything(), list(mean)))
 
+# Clean up variable names
+names(activity_subject_means) <- sub('_1', '', names(activity_subject_means))
+
 write.table(activity_subject_means, file='activity_subject_means.txt', row.names=FALSE)
