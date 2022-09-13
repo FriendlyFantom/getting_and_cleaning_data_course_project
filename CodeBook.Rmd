@@ -1,0 +1,39 @@
+---
+title: "getting and cleaning data course project codebook"
+author: "casper messmann"
+date: "2022-09-13"
+output: html_document
+---
+
+## Summary
+
+The output file `activity_subject_means.txt`contains the mean values of 66 variables grouped by activity and subject from the raw *Human Activity Recognition Using Smartphones Dataset*. These raw data are measurements of various activities like standing or walking with an accelerometer and gyroscope. They are provided in raw form as a separate training and test set, with separate activity labels and subject labels.
+
+## Transformations
+
+The `run_analysis.R` script applies the following transformations:
+
+1.  Adds the activity and subject labels for both training and test data sets to the measurement data for each.
+2.  Combines the training and test data into a single table by stacking one on top of the other.
+3.  Filters the measurement variables to *only* those of the **mean()** and **std()**. It *does not* include the meanFreq().
+4.  Renames the activity labels (integers) with descriptive names (strings) using the activity labels mapping.
+5.  Renames the measurement variables to be more legible for viewers without prior context. The original variable names are abbreviated and hard to decipher without explanation.
+6.  Creates a new table with the average of each measurement variable grouped by activity and subject.
+
+## Variables
+
+There are 66 measurement variables in `activity_subject_means.txt` that can be understood with the following rules:
+
+-   Body\|Gravity: indicates if a body or gravity signal
+
+-   Accelerometer\|Gyroscope: indicates if accelerometer or gyroscope measurement
+
+-   Jerk: jerk signal
+
+-   Magnitude: magnitude of the signal
+
+-   Fourier Transform: fast fourier transform applied to the signal
+
+-   Mean\|Std: indicates if this was a mean or standard deviation measurement (note that all variables are averaged by activity and subject, so these are means of means and means of standard deviations)
+
+-   X\|Y\|Z: indicates if signal in the x, y, or z plane
